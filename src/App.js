@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import serializeForm from 'form-serialize'
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,10 +8,10 @@ class App extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const values = serializeForm(e.target, { hash: true })
-        if (props.onMakePost) {
-            props.onMakePost(values)
-        } else if (props.onMakeComment) {
-            props.onMakeComment(values)
+        if (this.props.onMakePost) {
+            this.props.onMakePost(values)
+        } else if (this.props.onMakeComment) {
+            this.props.onMakeComment(values)
         }
     }
 
