@@ -1,28 +1,101 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
+
+/* Everything below here is Herty Special */
+
+* {
+  box-sizing: border-box;
+}
+.App > div {
+    position: relative;
+    top: 3vw;
+    left: 0vw;
+    transform: perspective(900px) rotateX(-7deg) rotateY(0deg) rotateZ(0deg);
+}
+.post-container {
+    position: relative;
+    top: 0vw;
+    left: -2vw;
+    transform: perspective(300px) rotateX(5deg) rotateY(-2deg) rotateZ(0deg);
+    background-color: #FFF;
+    padding: 1em;
+    border: 1px solid black;
+    box-shadow: 2px 4px 20px white, 3px 6px 30px darkred;
+    margin: 2vw 8vw;
+    overflow: hidden;
+}
+.post-container ul {
+  list-style: none;
+}
+.postadd-button {
+  position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3em;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.postadd-button:hover {
+  background-color: #ccc;
+}
+.ReactModal__Overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0 0 0 0.6);
+}
+.ReactModal__Content {
+    position: absolute;
+    top: 20vh;
+    left: 20vw;
+    height: 60vh;
+    width: 60vw;
+    background-color: #fff;
+    padding: 1em;
+    border: 10px solid #aaa;
+}
+.ReactModalPortal {
+  display: none;
+}
+.ReactModal__Body--open .ReactModalPortal {
+  display: block;
+}
+
+.ReactModalPortal form {
+  display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+
