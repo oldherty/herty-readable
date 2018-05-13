@@ -1,12 +1,27 @@
-import react from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addPost } from '../Actions'
 
-function MakePost(props) {
-    return (
-        <div>
-            <form className="make-post-form" onSubmit={props.handleSubmit}>
-                <select name="category" className="make-post-category-select">
-                    <label>Select a category</label>
-                    <option selected="selected">- none -</option>
+class MakePost extends Component {
+
+    state = {
+        postMili: new Date().getTime(),
+        title: "TEST CONTENT",
+        author: "TEST CONTENT",
+        category: "TEST CONTENT",
+        body: "TEST CONTENT",
+    }
+
+    render() {
+        const { dispatch, autoClose } = this.props
+        return(
+            <form className="make-post-form" onSubmit={e => {
+                e.preventDefault()
+                dispatch(addPost(this.state))
+            }}>
+                <label htmlFor="category">Select a category</label>
+                <select name="category" className="post-cat-select" defaultValue="- none -">
+                    <option>- none -</option>
                     <option>Crushing Despair</option>
                     <option>Intractable Apathy</option>
                     <option>Exploding Rage</option>
@@ -15,11 +30,10 @@ function MakePost(props) {
                 <input name="author" type="text" placeholder="Author Name" />
                 <input name="title" type="text" placeholder="Post Title" />
                 <input name="body" type="text" placeholder="Type your post here" />
-                <input type="submit" value="Post your Post, Posty" />
+                <button type="submit">Post your Post, Posty</button>
             </form>
-        </div>
-    )
+        )
+    }
 }
 
-export default MakePost
-
+export default connect()(MakePost)

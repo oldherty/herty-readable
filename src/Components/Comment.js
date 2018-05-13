@@ -5,7 +5,7 @@ function Comment(props) {
         <div className="comment-container">
             <p className="comment-text">{props.commentText}</p>
             <ul className="comment-details">
-                <li className="author-name">{props.author.name}</li>
+                <li className="author-name">{props.authorName}</li>
                 <li className="timestamp">{props.commentTime}</li>
             </ul>
             <button className="comment-edit" onClick={props.editComment}>edit</button>
